@@ -70,13 +70,6 @@ def searchContactByName(contactName):
             return poz
     return poz
 
-def menuActionChangeLanguage():
-     global language
-     if language == "en":
-          language = "ro"
-     else:
-          language = "en"
-
 
 def loadMenu(language):
     try:
@@ -101,6 +94,16 @@ def loadMenu(language):
         print("Error: Menu file for language", language, "not found!")
 
     file.close()
+
+def menuActionChangeLanguage():
+    global language
+    if language == "en":
+        language = "ro"
+    else:
+        language = "en"
+
+    loadMenu(language)
+
 
 def menuActionSave():
     file = open(PROGRAM_PATH + "agendaTelefonica.csv", "w") #comma separated values (csv)
